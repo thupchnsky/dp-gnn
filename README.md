@@ -1,7 +1,37 @@
-# DPDGC
-This is the official repository for [Differentially Private Decoupled Graph Convolutions for Multigranular Topology Protection (NeurIPS 2023)](https://arxiv.org/abs/2307.06422). We study the problem of differential privacy (DP) for GNNs (i.e., DP-GNNs) starting from the definition. Note that a refined camera-ready version will be online soon.
+# DP-GNN
+This is the official repository for [DPDGC: Differentially Private Decoupled Graph Convolutions for Multigranular Topology Protection (NeurIPS 2023)](https://arxiv.org/abs/2307.06422). We study the problem of differential privacy (DP) for GNNs (i.e., DP-GNNs) starting from the definition. Note that a refined camera-ready version will be online soon.
 
-Complete instructions such as environment settings will be provided soon.
+# Environment Setup
+We conducted our code tests on a Linux machine running CentOS 7.9.2009 and Python 3.9.16. For the necessary packages, please refer to `requirements.txt`. It's important to note that `scipy` needs to be downgraded to version 1.8.0 to ensure compatibility with autodp due to a recognized [issue](https://github.com/yuxiangw/autodp/issues/40).
+
+# Usage
+We have consolidated all functionalities within `train.py`. To execute the code with the default parameters, use the command:
+
+`python train.py $dp_method --dataset $dataset --epsilon $epsilon --project $output_folder`
+
+Here:
+
+- `$dp_method` is the desired DP method.
+- `$dataset` is the dataset you wish to test.
+- `$epsilon` is the specified value of epsilon.
+- `$output_folder` is the directory where results will be stored.
+
+Currently, we support the following DP methods
+
+- mlp, mlp-dp
+- gap-inf, gap-edp, gap-ndp
+- sage-inf, sage-edp, sage-ndp
+- dpdgc-inf, dpdgc-edp, dpdgc-ndp, dpdgc-kndp
+
+To reproduce the results shown in our paper and below, you can use the shell scripts in `train_scripts` with fine-tuned parameters. 
+
+![cSBM Datasets](./figs/csbm.png)
+
+![Real Datasets](./figs/real.png)
+
+# Contact
+
+Please contact Chao Pan (chaopan2@illinois.edu), Eli Chien (ichien3@illinois.edu) if you have any question.
 
 # Citation
 
